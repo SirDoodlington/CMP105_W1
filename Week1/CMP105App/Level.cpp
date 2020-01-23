@@ -9,11 +9,34 @@ Level::Level(sf::RenderWindow* hwnd)
 	rect.setPosition(100, 100);
 	rect.setFillColor(sf::Color::Red);
 
+	rectBot.setSize(sf::Vector2f(150, 150));
+	rectBot.setPosition(300, 300);
+	rectBot.setFillColor(sf::Color::Cyan);
+
+	rectMid.setSize(sf::Vector2f(100, 100));
+	rectMid.setPosition(325, 325);
+	rectMid.setFillColor(sf::Color::Magenta);
+
+	rectTop.setSize(sf::Vector2f(50, 50));
+	rectTop.setPosition(350, 350);
+	rectTop.setFillColor(sf::Color::Yellow);
+
 	circle.setRadius(45);
 	circle.setPosition(sf::Vector2f(600, 350));
 	circle.setFillColor(sf::Color::Blue);
 	circle.setOutlineThickness(5);
 	circle.setOutlineColor(sf::Color::Red);
+
+	if (!font.loadFromFile("font/Arial.ttf"))
+	{
+		std::cout << "Error loading font";
+	}
+
+	text.setFont(font);
+	text.setString("Hello world");
+	text.setCharacterSize(24);
+	text.setPosition(500, 100);
+	text.setFillColor(sf::Color::Magenta);
 }
 
 Level::~Level()
@@ -38,6 +61,12 @@ void Level::render()
 	beginDraw();
 	window->draw(rect);
 	window->draw(circle);
+
+	window->draw(rectBot);
+	window->draw(rectMid);
+	window->draw(rectTop);
+
+	window->draw(text);
 	endDraw();
 }
 
