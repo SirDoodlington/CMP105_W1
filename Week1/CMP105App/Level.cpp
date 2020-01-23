@@ -37,6 +37,9 @@ Level::Level(sf::RenderWindow* hwnd)
 	text.setCharacterSize(24);
 	text.setPosition(500, 100);
 	text.setFillColor(sf::Color::Magenta);
+
+	rectPsych.setFillColor(sf::Color::Green);
+	rectPsych.setSize(sf::Vector2f(100, 100));
 }
 
 Level::~Level()
@@ -52,7 +55,15 @@ void Level::handleInput()
 // Update game objects
 void Level::update()
 {
-	
+	sf::Vector2u botRight = window->getSize();
+	botRight.x -= rectPsych.getSize().x;
+	botRight.y -= rectPsych.getSize().y;
+
+	sf::Vector2f pos;
+	pos.x = botRight.x;
+	pos.y = botRight.y;
+
+	rectPsych.setPosition(pos);
 }
 
 // Render level
@@ -67,6 +78,8 @@ void Level::render()
 	window->draw(rectTop);
 
 	window->draw(text);
+
+	window->draw(rectPsych);
 	endDraw();
 }
 

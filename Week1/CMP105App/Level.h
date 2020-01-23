@@ -20,11 +20,14 @@ private:
 	sf::RenderWindow* window;
 
 	sf::RectangleShape rect;
+	sf::CircleShape circle;
+
 	sf::RectangleShape rectBot;
 	sf::RectangleShape rectMid;
 	sf::RectangleShape rectTop;
-	sf::CircleShape circle;
 
 	sf::Font font;
 	sf::Text text;
+
+	sf::RectangleShape rectPsych;
 };
